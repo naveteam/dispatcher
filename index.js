@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
 
 class Dispatcher extends Component {
-  initialState = { isDispatching: null, error: null }
+  initialState = { isLoading: null, error: null }
 
   state = this.initialState
 
   dispatch = promise =>
-    this.setState({ isDispatching: true }, async () => {
+    this.setState({ isLoading: true }, async () => {
       try {
         await promise
       } catch (error) {
         this.setState({ error })
       } finally {
-        this.setState({ isDispatching: false })
+        this.setState({ isLoading: false })
       }
     })
 

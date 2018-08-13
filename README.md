@@ -15,17 +15,8 @@ import Dispatcher from '@naveteam/dispatcher'
 
 const MyComponent = () => (
   <Dispatcher>
-    {({ isDispatching, error, dispatch, reset }) => (
-      <Authenticator>
-        {authenticate => (
-          <LoginForm
-            isLoading={isDispatching}
-            error={error}
-            onSubmit={values => dispatch(authenticate(values))}
-            onDismissError={reset}
-          />
-        )}
-      </Authenticator>
+    {({ isLoading, error, dispatch, reset }) => (
+      <MyComponent onSubmit={dispatch(myPromise())} />
     )}
   </Dispatcher>
 )
