@@ -1,9 +1,15 @@
 import React, { Component } from 'react'
 
-class Dispatcher extends Component {
-  initialState = { isLoading: null, error: null }
+const initialState = {
+  isLoading: null,
+  error: null
+}
 
-  state = this.initialState
+class Dispatcher extends Component {
+  constructor () {
+    super ()
+    this.state = initialState
+  }
 
   dispatch = promise =>
     this.setState({ isLoading: true }, async () => {
