@@ -1,22 +1,21 @@
 
 var path = require('path');
 module.exports = {
-  entry: './src/index.js',
+  entry: ['./src/index.js'],
   output: {
-    path: path.resolve(__dirname, 'build'),
-    filename: 'index.js',
-    libraryTarget: 'commonjs2' // THIS IS THE MOST IMPORTANT LINE! :mindblow: I wasted more than 2 days until realize this was the line most important in all this guide.
+    path: '/',
+    filename: 'index.js'
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         include: path.resolve(__dirname, 'src'),
-        exclude: /(node_modules|bower_components|build)/,
+        exclude: /(node_modules)/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ["es2015", "stage-0", "react"]
+            presets: ["es2017" , "stage-0" , "react"]
           }
         }
       }
