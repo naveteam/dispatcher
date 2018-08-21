@@ -15,9 +15,10 @@ class Dispatcher extends Component {
 
     _this = super();
 
-    this.dispatch = promise => this.setState({ isLoading: true }, _asyncToGenerator(function* () {
+    this.dispatch = (promise, cb) => this.setState({ isLoading: true }, _asyncToGenerator(function* () {
       try {
-        yield promise;
+        const response = yield promise;
+        if (cb) cb(response);
       } catch (error) {
         _this.setState({ error });
       } finally {

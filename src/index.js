@@ -7,14 +7,15 @@ const initialState = {
 
 class Dispatcher extends Component {
   constructor () {
-    super ()
+    super()
     this.state = initialState
   }
 
-  dispatch = promise =>
+  dispatch = (promise, cb) =>
     this.setState({ isLoading: true }, async () => {
       try {
-        await promise
+        const response = await promise
+        if (cb) cb(response)
       } catch (error) {
         this.setState({ error })
       } finally {
@@ -24,7 +25,7 @@ class Dispatcher extends Component {
 
   reset = () => this.setState(this.initialState)
 
-  render() {
+  render () {
     return this.props.children({
       ...this.state,
       dispatch: this.dispatch,
