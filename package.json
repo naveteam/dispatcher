@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --mode development",
     "build": "babel src -d . --copy-files",
+    "dev": "webpack-dev-server --config ./dev.config.js --mode development",
     "prepublishOnly": "npm run build",
     "deploy": "npm publish --access public"
   },
@@ -32,8 +33,13 @@
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "react-hot-loader": "^4.3.4",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
+  },
+  "dependencies": {
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
   }
 }

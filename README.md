@@ -36,3 +36,9 @@ const MyComponent = () => (
 />
 ...
 ```
+
+## Contribute
+
+Run `npm run dev`
+
+Edit `index.js` and `App.js` inside `src` folder
