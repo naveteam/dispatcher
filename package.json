@@ -1,6 +1,6 @@
 {
   "name": "@naveteam/dispatcher",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Dispatcher Component for React.js",
   "main": "index.js",
   "scripts": {
