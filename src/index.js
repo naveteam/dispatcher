@@ -11,7 +11,7 @@ class Dispatcher extends Component {
     this.state = initialState
   }
 
-  dispatch = (promise, cb) =>
+  dispatch = (promise, cb) => 
     this.setState({ isLoading: true }, async () => {
       try {
         const response = await promise

@@ -16,8 +16,23 @@ import Dispatcher from '@naveteam/dispatcher'
 const MyComponent = () => (
   <Dispatcher>
     {({ isLoading, error, dispatch, reset }) => (
-      <MyComponent onSubmit={dispatch(myPromise())} />
+      <MyComponent onSubmit={() => dispatch(myPromise())} />
     )}
   </Dispatcher>
 )
+```
+
+`dispatch` function accepts a callback function as second argument to retrieve data if you want
+
+```js
+...
+<MyComponent
+  onSubmit={() => 
+    dispatch(
+      myPromise(),
+      data => console.log(data)
+    )
+  }
+/>
+...
 ```
