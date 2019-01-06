@@ -3,16 +3,12 @@ import ReactDOM from 'react-dom'
 import Dispatcher from './index'
 
 const Button = () =>
-    <Dispatcher>
-        {({isLoading, dispatch, error}) => (
+    <Dispatcher dispatch={() => fetch('https://jsonplaceholder.typicode.com/todos/1')}>
+        {({isLoading, content, hasError, reload}) => (
         !isLoading
-            ? <button
-                onClick={() =>
-                    dispatch(fetch('https://jsonplaceholder.typicode.com/todos/1'), data => console.log(data))
-                }
-            >
-                send get
-            </button>
+            ? <div>
+                {JSON.stringify(content)}
+            </div>
             : <span>loading...</span>
         )}
     </Dispatcher>
