@@ -41,7 +41,7 @@ const MyComponent = () => (
 | isLoading | Boolean indicating request has finished | true |
 | content | value of finished promise | null |
 | hasError | boolean indicating if request failed | false |
-| reload | function for make request again
+| reload | calls dispatch function
 
 ## Contribute
 
