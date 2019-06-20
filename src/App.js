@@ -1,20 +1,30 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Dispatcher from './index'
+import { useDispatcher } from './index'
 
-const Button = () =>
-    <Dispatcher dispatch={() => fetch('https://jsonplaceholder.typicode.com/todos/1')}>
-        {({isLoading, content, hasError, reload}) => (
-        !isLoading
-            ? <div>
-                {JSON.stringify(content)}
-            </div>
-            : <span>loading...</span>
-        )}
-    </Dispatcher>
+const App = () => {
+    const [isLoading, error, content, reload] = useDispatcher(() => fetch('https://jsonplaceholder.typicode.com/todos/1'))
+
+    if (isLoading) {
+        return (
+            <span>loading...</span>
+        )
+    }
+
+    if (error) {
+        <span>{JSON.stringify(error)}</span>
+    }
+
+    return (
+        <div>
+            <p>{JSON.stringify(content)}</p>
+            <button onClick={reload}>reload</button>
+        </div>
+    )
+}
 
 ReactDOM.render(
-  <Button />,
+  <App />,
   document.getElementById('app')
 )
 

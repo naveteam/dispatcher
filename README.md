@@ -2,13 +2,17 @@
 
 ## Install
 
-`npm i @naveteam/dispatcher --save`
+`React` version below `16.8`:
 
-or
+`yarn add @naveteam/dispatcher@1.0`
+
+`React` version above `16.8`:
 
 `yarn add @naveteam/dispatcher`
 
 ## Usage
+
+### Without hooks
 
 ```jsx
 import Dispatcher from '@naveteam/dispatcher'
@@ -24,6 +28,33 @@ const MyComponent = () => (
     )}
   </Dispatcher>
 )
+```
+
+### With hooks
+
+```jsx
+import { useDispatcher } from '@naveteam/dispatcher'
+
+const MyComponent = () => {
+    const [isLoading, error, content, reload] = useDispatcher(() => fetch('https://jsonplaceholder.typicode.com/todos/1'))
+
+    if (isLoading) {
+        return (
+            <span>loading...</span>
+        )
+    }
+
+    if (error) {
+        <span>{JSON.stringify(error)}</span>
+    }
+
+    return (
+        <div>
+            <p>{JSON.stringify(content)}</p>
+            <button onClick={reload}>reload</button>
+        </div>
+    )
+}
 ```
 
 ## Component Props
@@ -45,6 +76,6 @@ const MyComponent = () => (
 
 ## Contribute
 
-Run `npm run dev`
+Run `yarn dev`
 
 Edit `index.js` and `App.js` inside `src` folder

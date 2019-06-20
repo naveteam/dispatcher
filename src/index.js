@@ -60,4 +60,6 @@ Dispatcher.propTypes = {
   errorCallback: PropTypes.func
 }
 
+export * from './hooks/useDispatcher'
+
 export default Dispatcher
